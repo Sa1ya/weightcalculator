@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: lightcoral;
+    }
+    h2{
+        font-style: italic;
+        font-size: 30px;
+    }
+
+    .container {
+        width: 300px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #result {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Weight Calculator</h2>
+    <input type="number" id="weight" placeholder="Enter your weight (kg)">
+    <button onclick="calculateWeight()">Calculate</button>
+    <div id="result"></div>
+</div>
+<script>
+    function calculateWeight() {
+        const weightInput = document.getElementById('weight');
+        const weight = parseFloat(weightInput.value);
+
+        if (isNaN(weight)) {
+            alert('Please enter a valid weight.');
+            return;
+        }
+
+        const mercuryWeight = weight * 0.38;
+        const venusWeight = weight * 0.91;
+        const marsWeight = weight * 0.38;
+        const jupiterWeight = weight * 2.34;
+
+        const result = `
+            <p>Weight on Mercury: ${mercuryWeight.toFixed(2)} kg</p>
+            <p>Weight on Venus: ${venusWeight.toFixed(2)} kg</p>
+            <p>Weight on Mars: ${marsWeight.toFixed(2)} kg</p>
+            <p>Weight on Jupiter: ${jupiterWeight.toFixed(2)} kg</p>
+        `;
+
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
+
+
